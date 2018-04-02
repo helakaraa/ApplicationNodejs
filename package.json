@@ -1,0 +1,22 @@
+{
+  "name": "crossingproject",
+  "version": "1.0.0",
+  "description": "crossing manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "helafocus",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "bootstrap": "^4.0.0",
+    "consolidate": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "jquery": "^3.3.1",
+    "pg": "^7.4.1"
+  }
+}
