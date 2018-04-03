@@ -27,6 +27,9 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false}));
 var pool = new pg.Pool(config);
+
+//get the list of contacts
+
 app.get('/',function(req,res)
 {   
     pool.connect(function(err,client,done) { 
@@ -52,6 +55,7 @@ app.get('/',function(req,res)
     });
 });
 
+//add any new contact to the list
 app.post('/add',function(req,res)
 {   
     pool.connect(function(err,client,done) { 
@@ -70,6 +74,8 @@ app.post('/add',function(req,res)
 
    
 });
+
+//delete a contact from the list
 app.delete('/delete/:id',function(req,res){
 
  pool.connect(function(err,client,done) { 
@@ -87,6 +93,7 @@ app.delete('/delete/:id',function(req,res){
         });     
 });
 
+//edit any contact
 app.post('/edit',function(req,res){
 
  pool.connect(function(err,client,done) { 
@@ -105,6 +112,7 @@ app.post('/edit',function(req,res){
 
 
 });
+
 //Server
 app.listen(3000,function()
 {
