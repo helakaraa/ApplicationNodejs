@@ -8,9 +8,9 @@ var express= require('express'),
 
 
 const config = {
-    user: 'postgres',
-    database: 'Darmcrossing',
-    password: 'focus2018',
+    user: 'username',
+    database: 'name_database',
+    password: 'password',
     port: 5432
 };
 //Asign Dust Engine to .dust Files
