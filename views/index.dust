@@ -1,1 +1,99 @@
+{>"layout" /}
+{<body}
+ <h1> list of Contacts</h1>
+ <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#formModal">Add Contact </button>
+ {#famous_people}
 
+    <div class="well">
+     <h4>{first_name} 
+     <button class="btn btn-danger pull-right" data-toggle="collapse" href="#{id}" aria-expanded="false" aria-controls="{id}">
+     
+     <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+
+     </button>
+     </h4>
+
+     <div class="collapse" id="{id}">
+   
+     <br />
+
+     <p><strong> Last name</strong> {last_name}</p>
+     <p><strong> Date of Birth </strong> {birthdate}</p>
+      <hr />
+     <button class="btn btn-default edit-contact"
+      data-toggle="modal"
+      data-target="#editFormModal"
+      data-id="{id}"
+      data-first_name="{first_name}"
+      data-last_name="{last_name}"
+    
+     >
+    
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+     </button>
+     <button class="btn btn-danger delete-contact" data-id="{id}">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+     </button>
+     </div>
+    </div>
+ {/famous_people}
+ <!--  Add form  modal-->
+ <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form method="post" action="/add"> 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Contact</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+        	<label>First Name</label>
+        	<input type="text" name="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+        	<label>Last Name</label>
+        	<input type="text" name="last_name" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Save"/>
+      </div>
+  </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+ <!--  Edit form  modal-->
+ <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="editformModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form method="post" action="/edit"> 
+      <input type="hidden" id="edit-form-id" name="id"/>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> Edit Contact</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+        	<label>First Name</label>
+        	<input type="text" name="first_name" class="form-control" id="edit-form-firstname">
+        </div>
+        <div class="form-group">
+        	<label>Last Name</label>
+        	<input type="text" name="last_name" class="form-control" id="edit-form-lastname">
+        </div>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Save"/>
+      </div>
+  </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{/body}
